@@ -56,7 +56,7 @@ footer {
 #logout {
     position: fixed;
     right: 20px;
-    top: 90px;
+    top: 20px;
 }
 
 .auth-main {
@@ -75,5 +75,9 @@ footer {
 }
 
 .auth-container button {
+    margin: 10px;
+}
+
+#delete-items-btn {
     margin: 10px;
 }
