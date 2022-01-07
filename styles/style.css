@@ -78,10 +78,6 @@ footer {
     margin: 10px;
 }
 
-#delete-items-btn {
-    margin: 10px;
-}
-
 .item-form {
     display: flex;
     flex-direction: column;
@@ -89,6 +85,7 @@ footer {
 
 input {
     margin: 5px;
+    text-align: center;
 }
 
 .purchased {
@@ -107,5 +104,9 @@ input {
     border: solid 1px black;
     border-radius: 5px;
     padding: 5px;
+    margin: 5px;
+}
+
+button {
     margin: 5px;
 }

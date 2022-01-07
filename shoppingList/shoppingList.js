@@ -1,9 +1,10 @@
-import { checkAuth, logout, createItem, getItems, purchaseItem, deleteItems } from '../fetch-utils.js';
+import { checkAuth, logout, createItem, getItems, purchaseItem, deleteItems, clearPurchasedItem } from '../fetch-utils.js';
 import { renderItem } from '../render-utils.js';
 
 const itemForm = document.querySelector('form');
 const shoppingListEl = document.querySelector('.shopping-list');
 const deleteBtn = document.getElementById('delete-items-btn');
+const clearBtn = document.getElementById('clear-items-btn');
 
 // console.log(itemForm, shoppingListEl, deleteBtn);
 
@@ -32,6 +33,12 @@ itemForm.addEventListener('submit', async(e) => {
     itemForm.reset();
 
     await displayList();
+});
+
+clearBtn.addEventListener('click', async() => {
+    await clearPurchasedItem();
+    await displayList();
+    
 });
 
 deleteBtn.addEventListener('click', async() => {

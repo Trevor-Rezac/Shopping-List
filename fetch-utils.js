@@ -17,7 +17,8 @@ export async function createItem(item, quantity) {
 export async function getItems() {
     const response = await client
         .from('shopping_list')
-        .select();
+        .select()
+        .order('purchased');
     
     return checkError(response);
 }
@@ -35,6 +36,15 @@ export async function deleteItems() {
     const response = await client
         .from('shopping_list')
         .delete();
+
+    return checkError(response);
+}
+
+export async function clearPurchasedItem() {
+    const response = await client
+        .from('shopping_list')
+        .delete()
+        .match({ purchased: true });
 
     return checkError(response);
 }
