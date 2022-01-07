@@ -13,3 +13,33 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
+itemForm.addEventListener('submit', async(e) => {
+    e.preventDefault();
+
+    const data = new FormData(itemForm);
+
+    const item = data.get('item');
+    const quantity = data.get('quantity');
+
+    await createItem(item, quantity);
+
+    itemForm.reset();
+
+    await displayList();
+});
+
+async function displayList() {
+    const list = await getItems();
+
+    shoppingListEl.textContent = '';
+
+    for (let item of list) {
+        const itemEl = document.createElement('p');
+
+        itemEl.classList.add('item');
+        itemEl.textContent = `${item.quantity} - ${item.item}`;
+
+        shoppingListEl.append(itemEl);
+    }
+
+}
