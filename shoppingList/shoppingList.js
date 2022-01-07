@@ -1,4 +1,5 @@
 import { checkAuth, logout, createItem, getItems, purchaseItem, deleteItems } from '../fetch-utils.js';
+import { renderItem } from '../render-utils.js';
 
 const itemForm = document.querySelector('form');
 const shoppingListEl = document.querySelector('.shopping-list');
@@ -44,10 +45,7 @@ async function displayList() {
     shoppingListEl.textContent = '';
 
     for (let item of list) {
-        const itemEl = document.createElement('p');
-
-        itemEl.classList.add('item');
-        itemEl.textContent = `${item.quantity} - ${item.item}`;
+        const itemEl = renderItem(item);
 
         if (item.purchased) {
             itemEl.classList.add('purchased');

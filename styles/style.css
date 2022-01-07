@@ -98,6 +98,7 @@ input {
     border: solid 1px black;
     border-radius: 5px;
     padding: 5px;
+    margin: 5px;
 }
 
 .not-purchased {
@@ -106,4 +107,5 @@ input {
     border: solid 1px black;
     border-radius: 5px;
     padding: 5px;
+    margin: 5px;
 }
