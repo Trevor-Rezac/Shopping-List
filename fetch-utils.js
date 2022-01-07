@@ -22,7 +22,7 @@ export async function getItems() {
     return checkError(response);
 }
 
-export async function purchasedItem(itemID) {
+export async function purchaseItem(itemID) {
     const response = await client
         .from('shopping_list')
         .update({ purchased: true })

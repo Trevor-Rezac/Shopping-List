@@ -1,10 +1,11 @@
-import { checkAuth, logout, createItem, getItems, purchasedItem, deleteItems } from '../fetch-utils.js';
+import { checkAuth, logout, createItem, getItems, purchaseItem, deleteItems } from '../fetch-utils.js';
 
 const itemForm = document.querySelector('form');
 const shoppingListEl = document.querySelector('.shopping-list');
 const deleteBtn = document.getElementById('delete-items-btn');
 
-console.log(itemForm, shoppingListEl, deleteBtn);
+// console.log(itemForm, shoppingListEl, deleteBtn);
+
 checkAuth();
 
 const logoutButton = document.getElementById('logout');
@@ -48,8 +49,18 @@ async function displayList() {
         itemEl.classList.add('item');
         itemEl.textContent = `${item.quantity} - ${item.item}`;
 
+        if (item.purchased) {
+            itemEl.classList.add('purchased');
+        } else {
+            itemEl.classList.add('not-purchased');
+            
+            itemEl.addEventListener('click', async() => {
+
+                await purchaseItem(item.id);
+                await displayList();
+            });
+        }
         shoppingListEl.append(itemEl);
     }
-
 }
 

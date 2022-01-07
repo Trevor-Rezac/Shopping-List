@@ -81,3 +81,29 @@ footer {
 #delete-items-btn {
     margin: 10px;
 }
+
+.item-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 5px;
+}
+
+.purchased {
+    text-decoration: line-through;
+    background-color: lightgrey;
+    color: crimson;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.not-purchased {
+    color: green;
+    cursor: pointer;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
+}
