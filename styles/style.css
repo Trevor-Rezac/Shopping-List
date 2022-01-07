@@ -89,6 +89,7 @@ input {
 }
 
 .purchased {
+    cursor: pointer;
     text-decoration: line-through;
     background-color: lightgrey;
     color: crimson;

@@ -32,6 +32,15 @@ export async function purchaseItem(itemID) {
     return checkError(response);
 }
 
+export async function undoPurchase(itemID) {
+    const response = await client
+        .from('shopping_list')
+        .update({ purchased: false })
+        .match({ id: itemID });
+    
+    return checkError(response);
+}
+
 export async function deleteItems() {
     const response = await client
         .from('shopping_list')

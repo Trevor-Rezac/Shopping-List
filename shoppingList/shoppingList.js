@@ -1,4 +1,4 @@
-import { checkAuth, logout, createItem, getItems, purchaseItem, deleteItems, clearPurchasedItem, removeItem } from '../fetch-utils.js';
+import { checkAuth, logout, createItem, getItems, purchaseItem, deleteItems, clearPurchasedItem, removeItem, undoPurchase } from '../fetch-utils.js';
 import { renderItem } from '../render-utils.js';
 
 const itemForm = document.querySelector('form');
@@ -56,6 +56,13 @@ async function displayList() {
 
         if (item.purchased) {
             itemEl.classList.add('purchased');
+
+            itemEl.addEventListener('click', async() => {
+
+                await undoPurchase(item.id);
+                await displayList();
+            });
+
         } else {
             itemEl.classList.add('not-purchased');
             
