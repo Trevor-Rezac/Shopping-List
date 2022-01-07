@@ -3,6 +3,42 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsI
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+export async function createItem(item, quantity) {
+    const response = await client
+        .from('shopping_list')
+        .insert([{
+            item,
+            quantity
+        }]);
+    
+    return checkError(response);
+}
+
+export async function getItems() {
+    const response = await client
+        .from('shopping_list')
+        .select();
+    
+    return checkError(response);
+}
+
+export async function purchasedItem(itemID) {
+    const response = await client
+        .from('shopping_list')
+        .update({ purchased: true })
+        .match({ id: itemID });
+
+    return checkError(response);
+}
+
+export async function deleteItems() {
+    const response = await client
+        .from('shopping_list')
+        .delete();
+
+    return checkError(response);
+}
+
 export async function getUser() {
     return client.auth.session();
 }

@@ -1,4 +1,4 @@
-import { checkAuth, logout } from '../fetch-utils.js';
+import { checkAuth, logout, createItem, getItems, purchasedItem, deleteItems } from '../fetch-utils.js';
 
 const itemForm = document.querySelector('form');
 const shoppingListEl = document.querySelector('.shopping-list');
@@ -12,3 +12,4 @@ const logoutButton = document.getElementById('logout');
 logoutButton.addEventListener('click', () => {
     logout();
 });
+
