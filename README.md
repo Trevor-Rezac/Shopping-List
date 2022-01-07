@@ -1,25 +1,56 @@
-## The Golden Rule: 
+## Supabase Data model
+  - user_id
+  - item - text
+  - quantity - integer
+  - purchase - boolean (set default to false)
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+## HTML Elements
+  - A form with 2 inputs
+    * item
+    * quantity
+  - Add Item button
+  - Delete All Items Button
+    * stretch - delete single item somehow?
+  - empty div to display items
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+## Events
+  1. On page load, 
+    - fetch and display the logged in users list. 
+      `getItems()`
 
-## Making a plan
+    - display the list
+      * loop through the items, create and append DOM elements. 
+      * render items differently if purchased === true
+      `renderItem(item)`
+      `displayShoppingListItems()`
 
-1) **Make a drawing of your app. Simple "wireframes"**
-1) **Once you have a drawing, name the HTML elements you'll need to realize your vision**
-1) **For each HTML element ask: Why do I need this?** 
-1) **Once we know _why_ we need each element, think about how to implement the "Why" as a "How"**
-1) **Find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change?**
-1) **Think about how to validate each of your features according to a Definition of Done**
-1) **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
+  2. on submit of Add Item form, 
+    - update the item and quantity in supabase with a new row
+    `createItem(item)`
+    - clear the old list from the DOM
+    - fetch the user's list
+    ```getItems()```
+    - loop through the items, create and append DOM elements.
+    `renderItem(item)`
+    `displayShoppingListItems()`
 
-Additional considerations:
-- Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
-- Consider your data model. 
-  - What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need? 
-  - What are the key/value pairs? 
-  - What arrays might you need? 
-  - What needs to live in a persistence layer?
-- Is there some state we need to initialize?
-- Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be resused?)
+  3. on clicking the item
+    - update item from purchased false to true
+    `buyItem(id)`
+    - clear the old list from the DOM
+    - fetch the user's list
+    ```getItems()```
+    - loop through the items, create and append DOM elements.
+    - render items differently if purchased === true
+    `renderItem(item)`
+    `displayShoppingListItems()`
+
+  4. on clicking the delete items button
+    - delete the items in supabase
+    `deleteAllItems()`
+    - display the items (an empty list)
+    `displayShoppingListItems()`
+
+
+  
+

@@ -1,12 +1,11 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://cszyzoknequiketsibzc.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTUxMzg0MSwiZXhwIjoxOTU3MDg5ODQxfQ.hcNN4nRH1boN4C_kZsmI-wyirMeThYfYfjLYwK9_iXA';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export async function getUser() {
     return client.auth.session();
 }
-
 
 export async function checkAuth() {
     const user = await getUser();
@@ -16,7 +15,7 @@ export async function checkAuth() {
 
 export async function redirectIfLoggedIn() {
     if (await getUser()) {
-        location.replace('./other-page');
+        location.replace('./shoppingList');
     }
 }
 
