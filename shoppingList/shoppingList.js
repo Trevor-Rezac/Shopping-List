@@ -13,6 +13,10 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
+window.addEventListener('load', async() => {
+    await displayList();
+});
+
 itemForm.addEventListener('submit', async(e) => {
     e.preventDefault();
 
@@ -25,6 +29,11 @@ itemForm.addEventListener('submit', async(e) => {
 
     itemForm.reset();
 
+    await displayList();
+});
+
+deleteBtn.addEventListener('click', async() => {
+    await deleteItems();
     await displayList();
 });
 
@@ -43,3 +52,4 @@ async function displayList() {
     }
 
 }
+
