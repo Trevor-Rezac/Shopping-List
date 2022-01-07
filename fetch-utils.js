@@ -49,6 +49,15 @@ export async function clearPurchasedItem() {
     return checkError(response);
 }
 
+export async function removeItem(itemID) {
+    const response = await client
+        .from('shopping_list')
+        .delete()
+        .match({ id: itemID });
+    
+    return checkError(response);
+}
+
 export async function getUser() {
     return client.auth.session();
 }

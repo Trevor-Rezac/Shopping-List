@@ -1,4 +1,4 @@
-import { checkAuth, logout, createItem, getItems, purchaseItem, deleteItems, clearPurchasedItem } from '../fetch-utils.js';
+import { checkAuth, logout, createItem, getItems, purchaseItem, deleteItems, clearPurchasedItem, removeItem } from '../fetch-utils.js';
 import { renderItem } from '../render-utils.js';
 
 const itemForm = document.querySelector('form');
@@ -65,7 +65,16 @@ async function displayList() {
                 await displayList();
             });
         }
-        shoppingListEl.append(itemEl);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
+
+        removeBtn.addEventListener('click', async() => {
+            await removeItem(item.id);
+            await displayList();
+        });
+
+        shoppingListEl.append(itemEl, removeBtn);
     }
 }
 
