@@ -15,13 +15,14 @@
 
 ## Events
 1. On page load 
-    * fetch and display the logged in users list - `getItems()`
+    * fetch the logged in users list 
+        - `getItems()`
     * display the list
         - loop through the items, create and append DOM elements 
           - `displayShoppingListItems()`
         - render items differently if purchased === true 
           - `renderItem(item)`
-2. On submit of Add Item form, 
+2. On submit of Add Item form 
     * update the item and quantity in supabase with a new row
        - `createItem(item)`
     * clear the old list from the DOM
