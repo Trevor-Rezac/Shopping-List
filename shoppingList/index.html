@@ -16,7 +16,7 @@
 <body>
     <header>
         <button id="logout">Logout</button>
-    </header>    
+    </header>
     <main>
         <h1>Shopping List</h1>
 
@@ -24,19 +24,18 @@
             <form name='item-form' required class="item-form">
                 <input type="number" min="0" name="quantity" id="quantity" placeholder="Quantity">
                 <input type="text" name="item" id="item" placeholder="Item">
-                <button class="add-btn">Add Item(s)</button>
+                <button class="add-btn">Add Item</button>
             </form>
         </section>
 
         <button id="clear-items-btn">Clear Purchased Items</button>
         <button id="delete-items-btn">Delete ALL Items</button>
         <div class="shopping-list-container">
-            <ul class="shopping-list">
 
-            </ul>
         </div>
     </main>
     <footer>
+        <p class="signature">Coded by <a href="https://github.com/Trevor-Rezac/Shopping-List">Trevor Rezac</a></p>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
     <script type="module" src="./shoppingList.js"></script>

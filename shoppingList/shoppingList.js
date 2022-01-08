@@ -2,7 +2,7 @@ import { checkAuth, logout, createItem, getItems, purchaseItem, deleteItems, cle
 import { renderItem } from '../render-utils.js';
 
 const itemForm = document.querySelector('form');
-const shoppingListEl = document.querySelector('.shopping-list');
+const shoppingListEl = document.querySelector('.shopping-list-container');
 const deleteBtn = document.getElementById('delete-items-btn');
 const clearBtn = document.getElementById('clear-items-btn');
 
@@ -73,7 +73,10 @@ async function displayList() {
             });
         }
 
+        const itemAndBtnContainer = document.createElement('div');
+        itemAndBtnContainer.classList.add('item-btn-container');
         const removeBtn = document.createElement('button');
+        removeBtn.classList.add('remove-btn');
         removeBtn.textContent = 'Remove';
 
         removeBtn.addEventListener('click', async() => {
@@ -81,7 +84,8 @@ async function displayList() {
             await displayList();
         });
 
-        shoppingListEl.append(itemEl, removeBtn);
+        itemAndBtnContainer.append(itemEl, removeBtn);
+        shoppingListEl.append(itemAndBtnContainer);
     }
 }
 
