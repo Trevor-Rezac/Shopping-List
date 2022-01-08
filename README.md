@@ -14,41 +14,41 @@
   - empty div to display items
 
 ## Events
-  1. On page load, 
-    - fetch and display the logged in users list. 
+  1. On page load 
+    * fetch and display the logged in users list. 
       `getItems()`
 
-    - display the list
+    * display the list
       * loop through the items, create and append DOM elements. 
       * render items differently if purchased === true
       `renderItem(item)`
       `displayShoppingListItems()`
 
   2. on submit of Add Item form, 
-    - update the item and quantity in supabase with a new row
+    * update the item and quantity in supabase with a new row
     `createItem(item)`
-    - clear the old list from the DOM
-    - fetch the user's list
-    ```getItems()```
-    - loop through the items, create and append DOM elements.
+    * clear the old list from the DOM
+    * fetch the user's list
+    `getItems()`
+    * loop through the items, create and append DOM elements.
     `renderItem(item)`
     `displayShoppingListItems()`
 
   3. on clicking the item
-    - update item from purchased false to true
+    * update item from purchased false to true
     `buyItem(id)`
-    - clear the old list from the DOM
-    - fetch the user's list
+    * clear the old list from the DOM
+    * fetch the user's list
     ```getItems()```
-    - loop through the items, create and append DOM elements.
-    - render items differently if purchased === true
+    * loop through the items, create and append DOM elements.
+    * render items differently if purchased === true
     `renderItem(item)`
     `displayShoppingListItems()`
 
   4. on clicking the delete items button
-    - delete the items in supabase
+    * delete the items in supabase
     `deleteAllItems()`
-    - display the items (an empty list)
+    * display the items (an empty list)
     `displayShoppingListItems()`
 
 
