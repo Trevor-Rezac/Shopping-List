@@ -1,12 +1,23 @@
 
 body {
-    --header-height: 50px;
+    --steel-teal: hsla(189, 15%, 54%, 1);
+    --pewter-blue: hsla(191, 19%, 60%, 1);
+    --dark-sky-blue: hsla(190, 25%, 66%, 1);
+    --mint-cream: hsla(159, 100%, 97%, 1);
+    --pale-silver: hsla(26, 23%, 79%, 1);
+    --black-shadows: hsla(15, 16%, 70%, 1);
+    --cinereous: hsla(0, 12%, 61%, 1);
+    --mountbatten-pink: hsla(348, 10%, 51%, 1);
+    --deep-taupe: hsla(339, 15%, 41%, 1);
+    --onyx: hsla(0, 0%, 27%, 1);
+    
+    --header-height: 35px;
     --shadow: 0px 10px 20px -12px rgba(0,0,0,0.45);
     --gutter: 30px;
-    --footer-height: 30px;
+    --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
+    background-color: var(--pale-silver);
 }
 
 main {
@@ -15,19 +26,24 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    background-color: var(--pale-silver);
+    color: var(--onyx);
 }
 
 header {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: flex-end;
-    background-color: var(--color3);
+    background-color: var(--steel-teal);
     height: var(--header-height);
-    
+    border: solid 1px var(--onyx);
 }
 
-h2 {
+h1 {
     font-size: 1.8rem;
     font-weight: bold;
+    margin: 0 auto;
 }
 
 .gutter-right {
@@ -49,14 +65,13 @@ footer {
     height: var(--footer-height);
     display: flex;
     justify-content: space-between;
-    background-color: var(--color3);
+    background-color: var(--steel-teal);
     box-shadow: var(--shadow);
+    border-top: solid 1px black;
 }
 
 #logout {
-    position: fixed;
-    right: 10px;
-    top: 10px;
+    height: 1.3rem;
 }
 
 .auth-main {
@@ -97,34 +112,50 @@ input {
 .remove-btn {
     height: 20px;
 }
+
 .purchased {
     cursor: pointer;
     text-decoration: line-through;
-    background-color: lightgrey;
-    color: crimson;
+    background-color: var(--onyx);
+    color: var(--cinereous);
     border: solid 1px black;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 5px;
     margin: 5px;
 }
 
 .not-purchased {
-    color: green;
+    color: var(--onyx);
     cursor: pointer;
     border: solid 1px black;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 5px;
     margin: 5px;
 }
 
 button {
+    margin: 6px;
+    cursor: pointer;
+    background-color: var(--dark-sky-blue);
+    color: var(--onyx);
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
     margin: 5px;
     cursor: pointer;
+    background-color: var(--dark-sky-blue);
+    color: var(--onyx);
+    border: none;
+    border-radius: 5px;
+    border: solid 1px var(--onyx);
 }
 
 .shopping-list-container {
     display: flex;
     flex-direction: column;
+    margin-bottom: 25px;
 }
 
 .item-btn-container {
@@ -132,6 +163,8 @@ button {
     flex-direction: row;
     align-items: center;
 }
+
+
 .signature {
     margin: 0;
     padding: 0;
