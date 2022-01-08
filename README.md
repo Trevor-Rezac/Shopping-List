@@ -46,7 +46,3 @@
         - `deleteAllItems()`
     * display the items (an empty list)
         - `displayShoppingListItems()`
-
-
-  
-
